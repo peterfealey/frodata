@@ -32,5 +32,13 @@ require 'frodata/railtie' if defined?(::Rails)
 # Ruby. Please look to the {file:README.md README} for how to get started using
 # the FrOData gem.
 module FrOData
-  # Your code goes here...
+  class String
+  def to_d
+    begin
+      BigDecimal(self)
+    rescue ArgumentError
+      BigDecimal(0)
+    end
+  end
+end
 end
